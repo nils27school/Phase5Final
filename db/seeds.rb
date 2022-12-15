@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Destroying seeds...'
+
+Comment.destroy_all
+Recipe.destroy_all
+User.destroy_all
+
+
+Nils = User.create(name: 'Nils', age: 60, password_digest: "word", email: "nils@gmail.com", background: 'Swedish')
+Nick = User.create(name: 'Nick', age: 33, password_digest: "pass", email: "nick@gmail.com", background: 'Swedish')
+Erin = User.create(name: 'Erin', age: 30, password_digest: "password", email:"erin@gmail.com", background: 'Swedish')
+
+
+Recipe.create(
+    name: 'Chicken Parm', 
+    ingredients: 'Chicken Mozzaerlla Tomato Sauce Pasta', 
+    description: 'Classic Italian dish deep fried chicken baked in tomato sauce with mozarella', 
+    user_id: Nils.id)
+
+Recipe.create(
+    name: 'Philly Cheese Steak', 
+    ingredients: "Steak Provolone Hoagie Onions Peppers", 
+    description: 'Shredded steak melted provolone sauteed onions and peppers on a hoagie', 
+    user_id: Nick.id) 
+
+Comment.create(description: 'Love This', recipe_id: Recipe.all.ids.sample, user_id: User.all.ids.sample)
+Comment.create(description: 'Hate This', recipe_id: Recipe.all.ids.sample, user_id: User.all.ids.sample)
