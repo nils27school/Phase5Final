@@ -18,17 +18,17 @@ Nick = User.create(name: 'Nick', age: 33, password_digest: "pass", email: "nick@
 Erin = User.create(name: 'Erin', age: 30, password_digest: "password", email:"erin@gmail.com", background: 'Swedish')
 
 
-Recipe.create(
+Chicken_parm = Recipe.create(
     name: 'Chicken Parm', 
     ingredients: 'Chicken Mozzaerlla Tomato Sauce Pasta', 
     description: 'Classic Italian dish deep fried chicken baked in tomato sauce with mozarella', 
     user_id: Nils.id)
 
-Recipe.create(
+Philly = Recipe.create(
     name: 'Philly Cheese Steak', 
     ingredients: "Steak Provolone Hoagie Onions Peppers", 
     description: 'Shredded steak melted provolone sauteed onions and peppers on a hoagie', 
     user_id: Nick.id) 
 
-Comment.create(description: 'Love This', recipe_id: Recipe.all.ids.sample, user_id: User.all.ids.sample)
-Comment.create(description: 'Hate This', recipe_id: Recipe.all.ids.sample, user_id: User.all.ids.sample)
+Comment.create(description: 'Love This', recipe_id: Chicken_parm.id, user_id: Nils.id)
+Comment.create(description: 'Hate This', recipe_id: Chicken_parm.id, user_id: Nils.id)
