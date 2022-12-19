@@ -15,15 +15,26 @@ import React, { useState } from 'react';
 //   }
 
 export default function Navbar() {
+    const path = window.location.pathname
     return <nav classname="nav">
         <a href="/" className="site-title">EZmeals</a>
         <ul>
             <li className="active">
-                <a href="/recipes">Recipes</a>
+                <CustomLink href="/recipes"> Recipes </CustomLink>
+                <CustomLink href="/about"> About </CustomLink>
                 </li>
-                <li>
-                <a href="/About">About</a>
-            </li>
         </ul>
     </nav>
+}
+
+function CustomLink({href, children, ...props}) {
+    const path = window.location.pathname
+
+    return(
+        <li className={path === href ? "active" : ""}>
+            <a href={href} {...props}>
+                {children}
+                </a>
+        </li>
+    )
 }
