@@ -7,9 +7,22 @@ export const Register = (props) => {
 
     const handleSubmit = (e) => {
         email.preventDefault();
-        console.log(email);
+        // console.log(email);
+        // const handleSubmit = (e) => {
+        //     email.preventDefault();
+            // console.log(email);
+            fetch("/register", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+              })
+                .then((r) => r.json())
+                .then((user) => props(user));
+            }
 
-    }
+   
 
     return (
            <div className='auth-form-container'>
@@ -21,7 +34,7 @@ export const Register = (props) => {
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youemail@gmail.com" id="email" name="email" />
             <label htmlFor="password">password</label>
             <input value ={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="************" id="password" name="password" />
-            <button type="submit">Log In</button>
+            <button type="submit">Register</button>
         </form>
         <button className="register-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
         </div>

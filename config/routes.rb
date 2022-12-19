@@ -10,4 +10,9 @@ resources :comments, only: [:index, :show, :create, :destroy]
 
 resources :recipes, only: [:index, :show, :create, :destroy]
 
+# login/logout
+post "/login", to: "sessions#create"
+get "/me", to: "users#show"
+delete "/logout", to: "sessions#destroy"
+
 end

@@ -4,11 +4,31 @@ export const Login = (props) => {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
 
+     
+    //   useEffect(() => {
+    //     fetch("/login").then((response) => {
+    //       if (response.ok) {
+    //         response.json().then((user) => setUser(user));
+    //       }
+    //     });
+    //   }, []);
+    
+    
     const handleSubmit = (e) => {
         email.preventDefault();
-        console.log(email);
+        // console.log(email);
+        fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          })
+            .then((r) => r.json())
+            .then((user) => props(user));
+        }
 
-    }
+   
 
     return (
         <div className='auth-form-container'>
