@@ -15,18 +15,27 @@ export const Login = (props) => {
     
     
     const handleSubmit = (e) => {
-        email.preventDefault();
+        e.preventDefault();
         // console.log(email);
         fetch("/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email }),
+            body: JSON.stringify({ email: email }),
           })
-            .then((r) => r.json())
-            .then((user) => props(user));
-        }
+            .then((r) => {
+                if (r.ok){
+                    r.json().then((user) => {
+                        console.log(user);
+                       console.log(sessionStorage.getItem("user_id", user.id))});
+                }
+                else {
+                    r.json().then(console.log)
+                }
+            });
+            }
+            
 
    
 
@@ -43,4 +52,4 @@ export const Login = (props) => {
         <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
         </div>
     )
-}
+    }
