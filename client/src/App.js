@@ -8,6 +8,7 @@ import About from "./About";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Recipes from "./Recipes";
+import Comment from "./Comment";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/about" element={<About/>}/>
         <Route exact path="/recipes" element={<Recipes/>}/>
         <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/comment" element={<Comment/>}/>
         <Route exact path="/" element={<Home/>}/>
       </Routes>
       </>

@@ -88,16 +88,27 @@ function NavBar() {
       >
         About
       </NavLink>
-      {/* <NavLink
-        to="/login"
+      <NavLink
+        to="/comment"
         exact
         style={linkStyles}
         activeStyle={{
           background: "darkblue",
         }}
       >
-        Login
-      </NavLink> */}
+        Comment  
+      </NavLink>
+      <NavLink
+        to="/logout"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Logout
+      </NavLink>
+     
     </div>
   );
 }
