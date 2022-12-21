@@ -12,7 +12,9 @@ resources :recipes, only: [:index, :show, :create, :destroy]
 
 # login/logout
 post "/login", to: "sessions#create"
+post "/register", to: "users#create"
 get "/me", to: "users#show"
 delete "/logout", to: "sessions#destroy"
+
 
 end

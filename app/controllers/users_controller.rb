@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show]
+    # before_action :find_user, only: [:show]
 
     def index
         render json: User.all, status: :ok
@@ -21,14 +21,20 @@ class UsersController < ApplicationController
      
 
     def create 
-        render json: User.create!(user_params), status: :created 
+      user = User.create(user_params)
+      if user.valid? 
+        session[:user_id] = user.id 
+        render json: user, status: :created
+      else
+        render json: [error: user.errors.full_messages], status: :unprocessable_entity 
+      end
     end
 
     private
 
-def find_user
-    @user = User.find(params[:id])
-end
+# def find_user
+#     @user = User.find(params[:id])
+# end
 
 def user_params
     params.permit(:name, :age, :password_digest, :email, :background)

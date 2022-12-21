@@ -1,48 +1,54 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Login } from "./Login";
-import { Register } from "./Register";
-import Navbar from './Navbar';
-import Home from './pages/Home';
-import Recipes from './pages/Recipes';
-import About from './pages/About';
-
-
-
+// import { Login } from "./Login";
+// import { Register } from "./Register";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Login from "./Login";
+import NavBar from "./NavBar";
+import Recipes from "./Recipes";
 
 function App() {
-  let component
-  switch (window.location.pathname) {
-    case "/":
-    component = <Home/>
-    break
-    case "/recipes":
-      component = <Recipes/>
-    break
-    case "/about":
-      component = <About/>
-      break 
-
-  }
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (forName) => {
-    setCurrentForm(forName);
-  }
-  
-
   return (
-    <>
-    <div className="App">
-      <Navbar/>
-      <div className="container">{component}</div>
-      {
-        currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
-      }
+    <div>
+      <NavBar />
+      <>
+      <Routes>
+        <Route exact path="/about" element={<About/>}/>
+        <Route exact path="/recipes" element={<Recipes/>}/>
+        <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/" element={<Home/>}/>
+      </Routes>
+      </>
     </div>
-    </>
+    
   );
 }
 
+
 export default App;
+
+
+
+
+//   const [currentForm, setCurrentForm] = useState('login');
+
+//   const toggleForm = (forName) => {
+//     setCurrentForm(forName);
+//   }
+  
+
+//   return (
+//     <>
+//     <div className="App">
+//       <Navbar/>
+//       {/* <div className="container">{component}</div> */}
+//       {
+//         currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
+//       }
+//     </div>
+//     </>
+//   );
+// }
+

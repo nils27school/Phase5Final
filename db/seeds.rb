@@ -13,10 +13,15 @@ Recipe.destroy_all
 User.destroy_all
 
 
-Nils = User.create(name: 'Nils', age: 60, password_digest: "word", email: "nils@gmail.com", background: 'Swedish')
-Nick = User.create(name: 'Nick', age: 33, password_digest: "pass", email: "nick@gmail.com", background: 'Swedish')
-Erin = User.create(name: 'Erin', age: 30, password_digest: "password", email:"erin@gmail.com", background: 'Swedish')
-
+Nils = User.create(name: 'Nils', age: 60, password: "word", email: "nils@gmail.com", background: 'Swedish')
+Nils.password_digest = BCrypt::Password.create(Nils.password)
+Nils.save
+Nick = User.create(name: 'Nick', age: 33, password: "pass", email: "nick@gmail.com", background: 'Swedish')
+Nick.password_digest = BCrypt::Password.create(Nick.password)
+Nick.save
+Erin = User.create(name: 'Erin', age: 30, password: "password", email:"erin@gmail.com", background: 'Swedish')
+Erin.password_digest = BCrypt::Password.create(Erin.password)
+Erin.save
 
 Chicken_parm = Recipe.create(
     name: 'Chicken Parm', 

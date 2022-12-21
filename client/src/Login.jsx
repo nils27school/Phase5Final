@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 
-export const Login = (props) => {
+function Login(props) {
     const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate();
+    const [errors, setErrors] = useState("")
 
+    
      
     //   useEffect(() => {
     //     fetch("/login").then((response) => {
@@ -14,7 +18,7 @@ export const Login = (props) => {
     //   }, []);
     
     
-    const handleSubmit = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
         // console.log(email);
         fetch("/login", {
@@ -22,34 +26,40 @@ export const Login = (props) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email: email }),
+            body: JSON.stringify({ email, password }),
           })
-            .then((r) => {
-                if (r.ok){
-                    r.json().then((user) => {
-                        console.log(user);
-                       console.log(sessionStorage.getItem("user_id", user.id))});
+            .then(r => {
+                if (r.ok) {
+                    r.json()
+                    .then (data => window.sessionStorage.setItem("user_id", data.id))
+                    .then (() => navigate("/recipes"))
                 }
-                else {
-                    r.json().then(console.log)
+                else{
+                    setErrors("invalid email or password")
                 }
-            });
-            }
-            
+            })
+        }            
 
    
 
-    return (
+     
+     return (
         <div className='auth-form-container'>
             <h2>Login</h2>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleLogin}>
             <label htmlFor="email">email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youemail@gmail.com" id="email" name="email" />
             <label htmlFor="password">password</label>
-            <input value ={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="************" id="password" name="password" />
-            <button type="submit">Log In</button>
+            <input value ={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="************" id="password" name="password" />
+                <button 
+                type="submit">
+                Log In
+                </button>
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
         </div>
-    )
-    }
+    );
+    
+}
+
+    export default Login;

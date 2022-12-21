@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 
-export const Register = (props) => {
+const Register = (props) => {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const [name, setName] = useState('')
 
     const handleSubmit = (e) => {
-        email.preventDefault();
+        e.preventDefault();
         // console.log(email);
-        // const handleSubmit = (e) => {
-        //     email.preventDefault();
-            // console.log(email);
-            fetch("/register", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email }),
-              })
-                .then((r) => r.json())
-                .then((user) => props(user));
+        fetch("/login", {
+            method: "CREATE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: email }),
+          })
+            .then((r) => {
+                if (r.ok){
+                    r.json().then((user) => {
+                        console.log(user);
+                       console.log(sessionStorage.getItem("user_id", user.id))});
+                }
+                else {
+                    r.json().then(console.log)
+                }
+            });
             }
 
    
@@ -40,3 +45,5 @@ export const Register = (props) => {
         </div>
     )
 }
+
+export default Register;
