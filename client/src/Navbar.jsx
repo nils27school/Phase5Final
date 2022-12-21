@@ -42,20 +42,34 @@
 
 // export default Navbar;
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Logout from "./Logout";
 
 const linkStyles = {
   display: "inline-block",
   width: "50px",
   padding: "12px",
   margin: "0 6px 6px",
-  background: "blue",
+  background: "green",
   textDecoration: "none",
   color: "white",
 };
 
 function NavBar() {
+    const [currentUser, setCurrentUser] = useState({})
+    const currentUserId = sessionStorage.getItem("user_id");
+
+    useEffect(() => {
+        if (currentUserId){
+            fetch (`/users/${currentUserId}`)
+            .then (r => r.json())
+            .then (user =>{
+                    setCurrentUser(user)
+            })
+        }
+    },[currentUserId])
+
   return (
     <div>
       <NavLink
@@ -69,7 +83,7 @@ function NavBar() {
         Home
       </NavLink>
       <NavLink
-        to="/about"
+        to="/recipes"
         exact
         style={linkStyles}
         activeStyle={{
@@ -79,7 +93,7 @@ function NavBar() {
            Recipes
       </NavLink>
       <NavLink
-        to="/recipes"
+        to="/about"
         exact
         style={linkStyles}
         activeStyle={{

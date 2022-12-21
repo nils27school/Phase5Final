@@ -1,39 +1,17 @@
-import React from "react";
-
-
-class Logout extends React.Component {
-  
-  constructor() {
-    super();
-    this.state = { isLoggedIn: true };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  
-
-  handleClick() {
-    this.setState((prevState) => {
-      return { isLoggedIn: !prevState.isLoggedIn };
-      // negate whatever isLoggedIn returns
-    });
-  }
-  
-
-  render() {
-    let currentStatus = this.state.isLoggedIn ? "logged in" : "logged out";
-    let buttonStatus = this.state.isLoggedIn ? "Log Out" : "Log In";
+import React from 'react';
 
 
 
+function Logout() {
+
+    // if (!authorized) {
+    //     return <Redirect to="/" />;
+   
     return (
       <div>
-        <h1> You're currently {currentStatus} </h1>
-        <button className="log-in" onClick={this.handleClick}>
-          {buttonStatus}
-        </button>
+        <h1>This is my logout component!</h1>
       </div>
     );
   }
-}
 
-export default Logout
+  export default Logout;

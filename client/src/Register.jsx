@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Register(props) {
+function Register({ user, setUser }) {
 
   const navigate = useNavigate()
   
@@ -13,12 +13,13 @@ function Register(props) {
 
   useEffect(() => {
     if (currentUser) {
-     navigate("/piano")
+     navigate("/recipes")
     } 
   },[currentUser, navigate])
 
   console.log(email);
   console.log(password);
+
   // console.log(confirmPw);
 
   function registerClick(e) {
@@ -33,7 +34,9 @@ function Register(props) {
         .then(r => {
             if (r.ok) {
                 r.json()
-                .then(data => window.sessionStorage.setItem("user_id", data.id))
+                .then(data => {
+                  console.log("loggedin")
+                  window.sessionStorage.setItem("user_id", data.id)})
                 .then(() => navigate("/recipes"))
             }
             else {
@@ -42,23 +45,65 @@ function Register(props) {
             }
         })
     }
-   
 
-    return (
-           <div className='auth-form-container'>
-            <h2>Register</h2>
-        <form className="register-form" onSubmit={registerClick}>
-            {/* <label htmlFor="name">Full Name</label>
-            <input value={name} name="name" id="name" placeholder="Full Name"/> */}
-            <label htmlFor="email">email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youemail@gmail.com" id="email" name="email" />
-            <label htmlFor="password">password</label>
-            <input value ={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="************" id="password" name="password" />
-            <button type="submit">Register</button>
-        </form>
-        <button className="register-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
+  return (
+    <>
+      <form className="ui large form">
+        <h2>Register</h2>
+        <div className="ui stacked segment">
+          <div className="field">
+            <label>Add your e-mail address!</label>
+            <div className="ui left icon input">
+              <i className="envelope icon"></i>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                name="email"
+                placeholder="E-mail address"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label>Create your password!</label>
+            <div className="ui left icon input">
+              <i className="lock icon"></i>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                type="text"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          {/* <div className="field">
+            <label>Confirm your password!</label>
+            <div className="ui left icon input">
+              <i className="lock icon"></i>
+              <input
+                onChange={(e) => setConfirmPw(e.target.value)}
+                type="text"
+                name="email"
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div> */}
+          {/* <div className="field">
+            <label>Create your user name!</label>
+            <div className="ui left icon input">
+              <i className="user icon"></i>
+              <input
+                onChange={(e) => setUserName(e.target.value)}
+                type="text"
+                name="email"
+                placeholder="User Name"
+              /> */}
+            {/* </div> */}
+          {/* </div> */}
+          <button onClick={registerClick} className="submit button">Submit</button>
         </div>
-    )
+      </form>
+    </>
+  );
 }
 
 export default Register;
