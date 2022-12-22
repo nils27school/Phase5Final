@@ -49,9 +49,13 @@
 
 //   export default Recipes;
 
+
+
+
 import React from 'react';
 // import { Redirect } from "react-router-dom"
 import {useNavigate} from "react-router-dom";
+import SearchBar from './SearchBar';
 
 function Recipes() {
     const navigate = useNavigate();
@@ -61,9 +65,12 @@ function Recipes() {
     // }
     return (
       <div>
+        <SearchBar/>
         <h1>This is my recipes component!</h1>
       </div>
     );
   }
 
+  
   export default Recipes;
+

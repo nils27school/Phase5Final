@@ -1,17 +1,16 @@
-import React from 'react';
-
-
-
-function Logout() {
-
-    // if (!authorized) {
-    //     return <Redirect to="/" />;
-   
-    return (
-      <div>
-        <h1>This is my logout component!</h1>
-      </div>
-    );
-  }
-
-  export default Logout;
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+function LogoutButton({ setCurrentUser }) {
+    const navigate = useNavigate()
+    function navLogout() {
+        setCurrentUser({})
+        sessionStorage.clear()
+        navigate("/")
+      }
+  return (
+    <div class="item">
+    <button onClick={navLogout} class="ui orange button">Log Out</button>
+  </div>
+  )
+}
+export default LogoutButton
