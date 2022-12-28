@@ -11,6 +11,7 @@ import Recipes from "./Recipes";
 import Comment from "./Comment";
 import Register from './Register';
 import Logout from "./Logout";
+import AddRecipe from "./AddRecipe";
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/comment" element={<Comment/>}/>
         <Route exact path="/logout" element={<Logout/>}/>
+        <Route exact path="/addrecipe" element={<AddRecipe/>}/>
         <Route exact path="/" element={<Home/>}/>
       </Routes>
       </>

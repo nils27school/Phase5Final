@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigate} from "react-router-dom";
 
 
 function Comment() {
@@ -7,6 +8,7 @@ function Comment() {
     //     return <Redirect to="/" />;
    const [comment, setComment] = useState("")
    const [comments, setComments] = useState([]);
+   const navigate = useNavigate();
 
    const onClickHandler = () => {
     setComments((comments) => [...comments, comment])
@@ -14,6 +16,26 @@ function Comment() {
    const onChangeHandler = (e) => {
     setComment(e.target.value);
    };
+
+
+   const handleComments = (e) => {
+    e.preventDefault();
+    // console.log(email);
+    fetch("/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comments }),
+      })
+        .then(r => {
+            if (r.ok) {
+                r.json()
+                .then (data => window.sessionStorage.setItem("user_id", data.id))
+                .then (() => navigate("/comments"))
+            }
+        })
+    }    
     return (
       <div className="main-container">
         {comments.map((text) =>(

@@ -43,7 +43,7 @@
 // export default Navbar;
 
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import Logout from "./Logout";
 
 const linkStyles = {
@@ -59,6 +59,7 @@ const linkStyles = {
 function NavBar() {
     const [currentUser, setCurrentUser] = useState({})
     const currentUserId = sessionStorage.getItem("user_id");
+   
 
     useEffect(() => {
         if (currentUserId){
@@ -69,6 +70,8 @@ function NavBar() {
             })
         }
     },[currentUserId])
+
+  
 
   return (
     <div>
@@ -111,6 +114,16 @@ function NavBar() {
         }}
       >
         Comment  
+      </NavLink>
+      <NavLink
+        to="/addrecipe"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Add Recipe  
       </NavLink>
       <NavLink
         to="/logout"
