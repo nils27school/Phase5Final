@@ -1,76 +1,115 @@
 // import React, {useState, useEffect} from 'react';
-// import {BrowserRouter, Routes, Route} from 'react-router-dom';
-// import RecipeMenu from './RecipeMenu';
-// import RecipeForm from './RecipeForm';
+// // import { Redirect } from "react-router-dom"
+// import {useNavigate} from "react-router-dom";
+// import SearchBar from './SearchBar';
+
 // import RecipeCard from './RecipeCard';
 
 
+
 // function Recipes() {
-    
-//     const [recipes, setRecipes] = useState([])
-//     const [selectedRecipe, setSelectedRecipe] = useState(null)
-  
-//     useEffect(() => {
-//         fetch(`http://localhost:3000/recipes/`)
-//         .then(r => r.json())
-//         .then(data => setRecipes(data))
-//     },[])
-  
-//     function handleEditForm(name, value) {
-//       setSelectedRecipe({
-//         ...selectedRecipe,
-//         [name]: value,
-//       })
-//     }
-  
-//     function handleEditRecipe(updatedRecipe) {
-//       const updatedRecipes = recipes.map((recipe) =>
-//         recipe.id === updatedRecipe.id ? updatedRecipe : recipe
-//       );
-//       setSelectedRecipe(updatedRecipe);
-//       setRecipes(updatedRecipes);
-//     }
+//     // const navigate = useNavigate();
+//     // const [recipes, setRecipes] = useState([]);
 
-//     // if (!authorized) {
-//     //     return <Redirect to="/" />;
-   
+//     // useEffect(() => {
+//     //     fetch("http://localhost:3000/recipes")
+//     //     .then(res => res.json())
+//     //     .then(data => setRecipes(data))
+//     //   }, []);
+//     // // if (!authorized) {
+//     //     navigate("/") ;
+//     // }
 //     return (
-//         <div className="Recipes">
-//           <BrowserRouter>
-           
-//             <Routes>
-//               <Route exact path= "/" element={<RecipeMenu recipes={recipes} setRecipes={setRecipes} setSelectedRecipe={setSelectedRecipe}/>}/>
-//               <Route path="/suggestRecipe" element={<RecipeForm recipes={recipes} setRecipes={setRecipes} editRecipe={handleEditRecipe} handleEditForm={handleEditForm} selectedRecipe={selectedRecipe}/>}/>
-//             </Routes>
-//           </BrowserRouter>
-//         </div>
-//       );
-//     }
+//       <div>
+//         <SearchBar/>
+//         {/* <RecipeCard/> */}
+//         <h1>This is my recipes component!</h1>
+//       </div>
+//     );
+//   }
 
+  
 //   export default Recipes;
 
-
-
-
-import React from 'react';
-// import { Redirect } from "react-router-dom"
-import {useNavigate} from "react-router-dom";
-import SearchBar from './SearchBar';
+import React, { useEffect, useState } from "react";
+import Header from "./Header";
+import RecipeContainer from "./RecipeContainer";
 
 function Recipes() {
-    const navigate = useNavigate();
+  const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState("");
+  const [formData, setFormData] = useState({})
 
-    // if (!authorized) {
-    //     navigate("/") ;
-    // }
-    return (
-      <div>
-        <SearchBar/>
-        <h1>This is my recipes component!</h1>
-      </div>
-    );
-  }
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/recipes")
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       setRecipes(data);
+  //     });
+  // }, []);
+
+useEffect(() => {
+  fetch('/recipes')
+  .then((r) => r.json())
+  .then((data) => setRecipes(data));
+}, []);
+
+
+
+  // function handleRemoveRecipes(id) {
+  //   const newRecipes = recipes.filter((recipe) => recipe.id !== id);
+  //   setRecipes(newRecipes);
+  // }
+
 
   
-  export default Recipes;
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
+//     fetch("http://localhost:3000/recipes", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({ ...formData })
+//     })
+//       .then(res => res.json())
+//       .then(newRecipe => setRecipes(
+//         [...recipes, newRecipe]))
+  
+//       setFormData(newRecipe);
+// };
+
+
+  const displayedRecipes = recipes.filter((recipe) =>
+    recipe.description.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // function newRecipeForm({ addedRecipe }) {
+   
+  
+  
+    // const handleOnChange = (e) => {
+    //   const { name, value } = e.target;
+    //   setFormData({
+      
+    //       ...formData,
+    //       [name]: value
+       
+    // })
+    // }
+
+  return (
+    <>
+    <div className="app">
+      <Header onSearch={setSearch} />
+      <RecipeContainer
+        recipes={displayedRecipes}
+        // newRecipe={newRecipe}
+      />
+    </div>
+    </>
+  );
+  }
+
+export default Recipes;

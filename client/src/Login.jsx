@@ -6,16 +6,6 @@ function Login(props) {
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
     const [errors, setErrors] = useState("")
-
-    
-     
-    //   useEffect(() => {
-    //     fetch("/login").then((response) => {
-    //       if (response.ok) {
-    //         response.json().then((user) => setUser(user));
-    //       }
-    //     });
-    //   }, []);
     
     
     const handleLogin = (e) => {

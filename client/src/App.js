@@ -13,6 +13,7 @@ import Register from './Register';
 import Logout from "./Logout";
 
 function App() {
+  
   return (
     <div>
       <NavBar />
@@ -23,7 +24,7 @@ function App() {
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/comment" element={<Comment/>}/>
-        <Route exact path="logout" element={<Logout/>}/>
+        <Route exact path="/logout" element={<Logout/>}/>
         <Route exact path="/" element={<Home/>}/>
       </Routes>
       </>

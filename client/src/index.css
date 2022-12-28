@@ -12,13 +12,13 @@ code {
     monospace;
 } */
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: white;
 }
-
+/* 
 .main-container {
   height: 100vh;
   display: flex;
@@ -27,7 +27,7 @@ code {
   align-items: center;
   margin-top: -200px;
 
-}
+} */
 
 .comment-flexbox {
   display: flex;
@@ -66,4 +66,4 @@ code {
   border-radius: 5px;
   margin: 10px 0;
   word-break: break-all;
-}
+} 
