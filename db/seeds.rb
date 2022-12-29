@@ -62,4 +62,7 @@ user_id: Nils.id,
 )
 
 Comment.create(description: 'Love This', recipe_id: Chicken_parm.id, user_id: Nils.id)
-Comment.create(description: 'Hate This', recipe_id: Chicken_parm.id, user_id: Nils.id)
+Comment.create(description: 'Hate This', recipe_id: Chicken_parm.id, user_id: Nick.id)
+Comment.create(description: 'Thanks for the recipe!', recipe_id: Veggie_tacos.id, user_id: Erin.id)
+Comment.create(description: 'So good. Going to show all my friends', recipe_id: Chili.id, user_id: Nick.id)
+Comment.create(description: 'Yummy', recipe_id: Buffalo_Chicken_Quesadilla.id, user_id: Erin.id)

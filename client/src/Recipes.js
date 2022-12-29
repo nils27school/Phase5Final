@@ -40,14 +40,6 @@ function Recipes() {
   const [search, setSearch] = useState("");
   const [formData, setFormData] = useState({})
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/recipes")
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       setRecipes(data);
-  //     });
-  // }, []);
-
 useEffect(() => {
   fetch('/recipes')
   .then((r) => r.json())

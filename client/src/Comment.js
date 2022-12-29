@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
+import CommentContainer from './CommentContainer'
 
 
 function Comment() {
@@ -10,6 +11,12 @@ function Comment() {
    const [comments, setComments] = useState([]);
    const navigate = useNavigate();
 
+   useEffect(() => {
+    fetch('/comment')
+    .then((r) => r.json())
+    .then((data) => setComments(data));
+  }, []);
+
    const onClickHandler = () => {
     setComments((comments) => [...comments, comment])
    };
@@ -17,7 +24,9 @@ function Comment() {
     setComment(e.target.value);
    };
 
-
+  //  const displayedComments = comments.filter((comment) =>
+  //  comment.description.toLowerCase().includes(search.toLowerCase())
+//  );
    const handleComments = (e) => {
     e.preventDefault();
     // console.log(email);
@@ -32,7 +41,7 @@ function Comment() {
             if (r.ok) {
                 r.json()
                 .then (data => window.sessionStorage.setItem("user_id", data.id))
-                .then (() => navigate("/comments"))
+                .then (() => navigate("/comment"))
             }
         })
     }    
@@ -50,8 +59,20 @@ function Comment() {
             className ="input-box"/>
         <button onClick={onClickHandler} className="comment-button">Submit</button>
         </div>
-      </div>
-    );
-  }
+     
+          <>
+          <div className="app">
+            
+            <CommentContainer
+              // comments={displayedComments}
+              // newRecipe={newRecipe}
+            />
+          </div>
+          </>
+          </div>
+        );
+        }
+   
+  
 
   export default Comment;
