@@ -1,6 +1,7 @@
 
 
 import React from "react";
+import NavBar from "./NavBar";
 import Search from "./SearchBar";
 
 function Header({ onSearch }) {
@@ -9,7 +10,7 @@ function Header({ onSearch }) {
       <h1>
         EZmeals
       </h1>
-      <Search onSearch={onSearch} />
+      <NavBar/>
     </header>
   );
 }

@@ -34,6 +34,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import RecipeContainer from "./RecipeContainer";
+import SearchBar from "./SearchBar";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -94,7 +95,7 @@ useEffect(() => {
   return (
     <>
     <div className="app">
-      <Header onSearch={setSearch} />
+      <SearchBar onSearch={search} />
       <RecipeContainer
         recipes={displayedRecipes}
         // newRecipe={newRecipe}

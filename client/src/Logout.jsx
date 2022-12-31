@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{ useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 function Logout({ setCurrentUser }) {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
+const [loginStatus, setLoginStatus] = useState()
 
     // function navLogout() {
     //     setCurrentUser({})
@@ -10,14 +11,23 @@ function Logout({ setCurrentUser }) {
     //     navigate("/")
     //   }
 
-      const handleLogout = () => {
-        fetch(`/logout`, {
-          method: "DELETE",
-        }).then((res) => {
-          if (res.ok) {
-            setCurrentUser(null);
-          }
-        });
+      // const handleLogout = () => {
+      //   fetch(`/logout`, {
+      //     method: "DELETE",
+      //   }).then((res) => {
+      //     if (res.ok) {
+      //       setCurrentUser(null);
+      //     }
+      //   });
+      function handleLogout() {
+        fetch('/logout', {
+            method: 'DELETE'
+        })
+            .then(() => sessionStorage.clear())
+            .then(setLoginStatus(false))
+        console.log('Logout Worked')
+        navigate('/')
+    
       };
   return (
     <div class="item">

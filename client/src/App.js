@@ -6,18 +6,18 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Login from "./Login";
-import NavBar from "./NavBar";
 import Recipes from "./Recipes";
 import Comment from "./Comment";
 import Register from './Register';
 import Logout from "./Logout";
 import AddRecipe from "./AddRecipe";
+import Header from './Header';
 
 function App() {
   
   return (
     <div>
-      <NavBar />
+      <Header />
       <>
       <Routes>
         <Route exact path="/about" element={<About/>}/>

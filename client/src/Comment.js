@@ -30,7 +30,7 @@ function Comment() {
    const handleComments = (e) => {
     e.preventDefault();
     // console.log(email);
-    fetch("/comments", {
+    fetch("/comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ function Comment() {
         <div className = "comment-flexbox">
         <h3 className="comment-text">Comment</h3>
         <textarea 
-            value={comment} 
+            value={handleComments} 
             onChange={onChangeHandler} 
             className ="input-box"/>
         <button onClick={onClickHandler} className="comment-button">Submit</button>
