@@ -16,6 +16,6 @@ post "/register", to: "users#create"
 get "/me", to: "users#show"
 delete "/logout", to: "sessions#destroy"
 
-
+get "commentList", to: "users#show"
 
 end
