@@ -35,6 +35,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import RecipeContainer from "./RecipeContainer";
 import SearchBar from "./SearchBar";
+import './App.css';
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -94,8 +95,8 @@ useEffect(() => {
 
   return (
     <>
-    <div className="app">
-      <SearchBar onSearch={search} />
+    <div className="recipes" style={{backgroundColor: 'tan', color: 'white}}'}}>
+      {/* <SearchBar onSearch={search} /> */}
       <RecipeContainer
         recipes={displayedRecipes}
         // newRecipe={newRecipe}

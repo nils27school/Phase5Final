@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Card.css";
 
 function RecipeCard({
   recipe: { id, name, description, ingredients, user_id },
@@ -24,9 +25,9 @@ function RecipeCard({
             ☆
           </button>
         )}
-        <h1>{name}</h1>
-        <span> · {ingredients}</span> 
-        <h2>{description}</h2>
+        <h1 className="card-name">{name}</h1>
+        <span className="card-ingredients"> {ingredients}</span> 
+        <h2 className="card-description">{description}</h2>
       
         {/* <button onClick={handleDeleteClick} className="emoji-button delete">
           🗑

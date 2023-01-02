@@ -48,7 +48,7 @@ import Logout from "./Logout";
 
 const linkStyles = {
   display: "inline-block",
-  width: "50px",
+  width: "85px",
   padding: "12px",
   margin: "0 6px 6px",
   background: "green",

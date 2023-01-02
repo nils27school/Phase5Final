@@ -30,7 +30,7 @@ const [loginStatus, setLoginStatus] = useState()
     
       };
   return (
-    <div class="item">
+    <div class="item" style={{backgroundColor: 'tan', color: 'white}}'}}>
     <button onClick={handleLogout} class="ui orange button">Log Out</button>
   </div>
   )

@@ -9,7 +9,7 @@ function About() {
     //     navigate("/") ;
     // }
     return (
-      <div>
+      <div style={{backgroundColor: 'tan', color: 'white}}'}}>
         <h1>Welcome to EZmeals</h1>
         <h2>EZmeals is a cookbook full of easy to make recipes</h2>
         <h2>Log in or Sign up with your email</h2>
