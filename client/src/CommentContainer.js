@@ -17,8 +17,7 @@ import CommentCard from "./CommentCard";
 //   );
 // }
 
-// import React from "react";
-// import CocktailCard from "./CocktailCard"
+
 
 function CommentContainer({comments, setComments, setSelectedComment}) {
 

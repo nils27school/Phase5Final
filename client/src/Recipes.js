@@ -36,6 +36,7 @@ import Header from "./Header";
 import RecipeContainer from "./RecipeContainer";
 import SearchBar from "./SearchBar";
 import './App.css';
+import AddRecipe from "./AddRecipe";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -101,6 +102,7 @@ useEffect(() => {
         recipes={displayedRecipes}
         // newRecipe={newRecipe}
       />
+      <AddRecipe/>
     </div>
     </>
   );

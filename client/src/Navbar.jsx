@@ -115,7 +115,7 @@ function NavBar() {
       >
         Comment  
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to="/addrecipe"
         exact
         style={linkStyles}
@@ -124,7 +124,7 @@ function NavBar() {
         }}
       >
         Add Recipe  
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to="/logout"
         exact

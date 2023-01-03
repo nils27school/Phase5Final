@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
     end
 
     def create 
+        puts recipe_params
         render json: Recipe.create!(recipe_params), status: :created 
     end
 
@@ -26,7 +27,7 @@ def find_recipe
 end
 
 def recipe_params
-    params.permit(:name, :ingredients, :description)
+    params.permit(:name, :ingredients, :description, :user_id)
 end
 
 end

@@ -53,7 +53,7 @@ function App() {
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/commentList" element={<CommentList comments={comments} setComments={setComments} setSelectedComment={setSelectedComment} editComment={handleEditComment}/>}/>
         <Route exact path="/logout" element={<Logout/>}/>
-        <Route exact path="/addrecipe" element={<AddRecipe/>}/>
+        {/* <Route exact path="/addrecipe" element={<AddRecipe/>}/> */}
         <Route exact path="/" element={<Home/>}/>
       </Routes>
       </>
