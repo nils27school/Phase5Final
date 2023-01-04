@@ -30,7 +30,7 @@ function AddComment(props) {
   }
   return(
     <div>
-      <span>Add Recipe</span>
+      <span>Add Comment</span>
 <form onSubmit={(e)=> submit(e)}>
   <input onChange={(e)=>handle(e)} id="description" value={data.description} placeholder="description" type="text"></input>
 

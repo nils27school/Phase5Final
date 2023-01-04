@@ -145,7 +145,7 @@ function Comments() {
   return (
     <>
       <div className="comments" style={{ backgroundColor: 'tan', color: 'white}}' }}>
-        <CommentContainer recipes={displayedComments} comments={comments}/>
+        <CommentContainer displayedComments={displayedComments} comments={comments}/>
         <AddComment />
       </div>
     </>
