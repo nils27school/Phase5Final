@@ -5,20 +5,6 @@ function Logout({ setCurrentUser }) {
 
 const [loginStatus, setLoginStatus] = useState()
 
-    // function navLogout() {
-    //     setCurrentUser({})
-    //     sessionStorage.clear()
-    //     navigate("/")
-    //   }
-
-      // const handleLogout = () => {
-      //   fetch(`/logout`, {
-      //     method: "DELETE",
-      //   }).then((res) => {
-      //     if (res.ok) {
-      //       setCurrentUser(null);
-      //     }
-      //   });
       function handleLogout() {
         fetch('/logout', {
             method: 'DELETE'

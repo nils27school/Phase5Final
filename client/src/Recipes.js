@@ -1,40 +1,5 @@
-// import React, {useState, useEffect} from 'react';
-// // import { Redirect } from "react-router-dom"
-// import {useNavigate} from "react-router-dom";
-// import SearchBar from './SearchBar';
-
-// import RecipeCard from './RecipeCard';
-
-
-
-// function Recipes() {
-//     // const navigate = useNavigate();
-//     // const [recipes, setRecipes] = useState([]);
-
-//     // useEffect(() => {
-//     //     fetch("http://localhost:3000/recipes")
-//     //     .then(res => res.json())
-//     //     .then(data => setRecipes(data))
-//     //   }, []);
-//     // // if (!authorized) {
-//     //     navigate("/") ;
-//     // }
-//     return (
-//       <div>
-//         <SearchBar/>
-//         {/* <RecipeCard/> */}
-//         <h1>This is my recipes component!</h1>
-//       </div>
-//     );
-//   }
-
-  
-//   export default Recipes;
-
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
 import RecipeContainer from "./RecipeContainer";
-import SearchBar from "./SearchBar";
 import './App.css';
 import AddRecipe from "./AddRecipe";
 
@@ -67,7 +32,6 @@ useEffect(() => {
       <RecipeContainer
         recipes={displayedRecipes} 
         onRemoveRecipe={deleteRecipe}
-        // newRecipe={newRecipe}
       />
       <AddRecipe/>
     </div>

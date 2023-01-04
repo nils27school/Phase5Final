@@ -8,7 +8,7 @@ function Home() {
     const toggleForm = (forName) => {
       setCurrentForm(forName);
     }
-    const bgColor = 'salmon';
+    
     return (
       <>
       <div className="Home" style={{backgroundColor: 'tan', color: 'white}}'}}>

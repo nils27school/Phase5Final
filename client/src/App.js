@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-// import { Login } from "./Login";
-// import { Register } from "./Register";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
@@ -10,37 +8,11 @@ import Recipes from "./Recipes";
 import Comments from "./Comments";
 import Register from './Register';
 import Logout from "./Logout";
-import AddRecipe from "./AddRecipe";
 import Header from './Header';
 
 
 
 function App() {
-  const [comments, setComments] = useState([])
-  // const [selectedComment, setSelectedComment] = useState(null)
-
-  // useEffect(() => {
-  //     fetch('http://localhost:3000/comments')
-  //     .then(r => r.json())
-  //     .then(data => setComments(data))
-  // },[])
-
-  // function handleEditForm(name, value) {
-  //   setSelectedComment({
-  //     ...selectedComment,
-  //     [name]: value,
-  //   })
-  // }
-
-  // function handleEditComment(updatedComment) {
-  //   const updatedComments = comments.map((comment) =>
-  //     comment.id === updatedComment.id ? updatedComment : comment
-  //   );
-  //   setSelectedComment(updatedComment);
-  //   setComments(updatedComments);
-  // }
-
-
   
   return (
     <div>
@@ -64,27 +36,3 @@ function App() {
 
 
 export default App;
-
-
-
-
-//   const [currentForm, setCurrentForm] = useState('login');
-
-//   const toggleForm = (forName) => {
-//     setCurrentForm(forName);
-//   }
-  
-
-//   return (
-//     <>
-//     <div className="App">
-//       <Navbar/>
-//       {/* <div className="container">{component}</div> */}
-//       {
-//         currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
-//       }
-//     </div>
-//     </>
-//   );
-// }
-

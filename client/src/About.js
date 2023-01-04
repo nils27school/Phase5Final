@@ -1,13 +1,7 @@
 import React from 'react';
-// import { Redirect } from "react-router-dom"
-import {useNavigate} from "react-router-dom";
 
 function About() {
-    const navigate = useNavigate();
 
-    // if (!authorized) {
-    //     navigate("/") ;
-    // }
     return (
       <div style={{backgroundColor: 'tan', color: 'white}}'}}>
         <h1>Welcome to EZmeals</h1>
