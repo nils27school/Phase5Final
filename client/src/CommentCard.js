@@ -41,31 +41,56 @@
 
 // export default CommentCard;
 
-import React from "react"
+// import React from "react"
 
-function CommentCard({commentData, removeComment, setSelectedComment}) {
-    const {name, description, id} = commentData
+// function CommentCard({commentData, removeComment, setSelectedComment}) {
+//     const {name, description, id} = commentData
 
-    function handleDelete() {
-        fetch(`/comment/${id}`, {
-            method: "Delete",
-        })
-        removeComment(id)
-    }
+//     function handleDelete() {
+//         fetch(`/comment/${id}`, {
+//             method: "Delete",
+//         })
+//         removeComment(id)
+//     }
 
-    function handleClick() {
-        setSelectedComment(commentData)
-    }
+//     function handleClick() {
+//         setSelectedComment(commentData)
+//     }
 
-return(
-    <div className="cards">
-        <h3>{name}</h3> 
-        <p>"{description}"</p>
-        <button onClick={handleDelete} className="button">Delete</button>
-        <button type="button" onClick={handleClick} className="button">Edit Comment</button>
+// return(
+//     <div className="cards">
+//         <h3>{name}</h3> 
+//         <p>"{description}"</p>
+//         <button onClick={handleDelete} className="button">Delete</button>
+//         <button type="button" onClick={handleClick} className="button">Edit Comment</button>
 
-    </div>
-)
+//     </div>
+// )
+// }
+
+// export default CommentCard
+
+import React, { useState } from "react";
+import "./Card.css";
+
+function CommentCard({
+  comment: {description, user_id, recipe_id},
+}) {
+  const [favorite, setFavorite] = useState(false);
+
+  return (
+    <li className="card">
+      <div className="details">
+        <h1 className="card-user">{user_id}</h1>
+        {/* <span className="card-comment"> {comment_id}</span> */}
+        <h2 className="card-description">{description ? description : null}</h2>
+        <span className="card-recipe"> {recipe_id}</span>
+      </div>
+    </li>
+  );
 }
 
-export default CommentCard
+
+
+
+export default CommentCard;

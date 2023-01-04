@@ -1,5 +1,5 @@
-import React from "react";
-import CommentCard from "./CommentCard";
+// import React from "react";
+// import CommentCard from "./CommentCard";
 
 // function CommentContainer({ comments, newComments }) {
 //   return (
@@ -19,29 +19,50 @@ import CommentCard from "./CommentCard";
 
 
 
-function CommentContainer({comments, setComments, setSelectedComment}) {
+// function CommentContainer({comments, setComments, setSelectedComment}) {
 
-    function removeComment(id) {
-        const newComments = comments.filter((comment) => comment.id !== id)
-        setComments(newComments)
-    }
+//     function removeComment(id) {
+//         const newComments = comments.filter((comment) => comment.id !== id)
+//         setComments(newComments)
+//     }
 
-    const commentList = comments.map(comment => {
-        return <CommentCard key={comment.id} commentData={comment} removeComment={removeComment} setSelectedComment={setSelectedComment}/>
-    })
+//     const commentList = comments.map(comment => {
+//         return <CommentCard key={comment.id} commentData={comment} removeComment={removeComment} setSelectedComment={setSelectedComment}/>
+//     })
 
-    return(
-        <div className="container">
-            <h2 id="menu-title">Comments</h2>
-            <div >
-                <div className="cards">
-                    {commentList}
-                </div>
-            </div>
-        </div>
-    )
+//     return(
+//         <div className="container">
+//             <h2 id="menu-title">Comments</h2>
+//             <div >
+//                 <div className="cards">
+//                     {commentList}
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+
+
+
+// export default CommentContainer;
+
+import React from "react";
+import CommentCard from "./CommentCard";
+
+function CommentContainer({ comments, newComment }) {
+  return (
+    <main>
+      <ul className="cards">
+        {comments.map((comment) => (
+          <CommentCard
+            key={comment.id}
+            comment={comment}
+            newComment={newComment}
+          />
+        ))}
+      </ul>
+    </main>
+  );
 }
-
-
 
 export default CommentContainer;

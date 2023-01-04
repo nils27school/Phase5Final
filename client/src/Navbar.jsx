@@ -44,7 +44,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Navigate, NavLink } from "react-router-dom";
-import Logout from "./Logout";
 
 const linkStyles = {
   display: "inline-block",
@@ -106,25 +105,15 @@ function NavBar() {
         About
       </NavLink>
       <NavLink
-        to="/comment"
+        to="/comments"
         exact
         style={linkStyles}
         activeStyle={{
           background: "darkblue",
         }}
       >
-        Comment  
+        Comments 
       </NavLink>
-      {/* <NavLink
-        to="/addrecipe"
-        exact
-        style={linkStyles}
-        activeStyle={{
-          background: "darkblue",
-        }}
-      >
-        Add Recipe  
-      </NavLink> */}
       <NavLink
         to="/logout"
         exact

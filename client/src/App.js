@@ -7,7 +7,7 @@ import Home from "./Home";
 import About from "./About";
 import Login from "./Login";
 import Recipes from "./Recipes";
-import CommentList from "./CommentList";
+import Comments from "./Comments";
 import Register from './Register';
 import Logout from "./Logout";
 import AddRecipe from "./AddRecipe";
@@ -17,28 +17,28 @@ import Header from './Header';
 
 function App() {
   const [comments, setComments] = useState([])
-  const [selectedComment, setSelectedComment] = useState(null)
+  // const [selectedComment, setSelectedComment] = useState(null)
 
-  useEffect(() => {
-      fetch('/comment')
-      .then(r => r.json())
-      .then(data => setComments(data))
-  },[])
+  // useEffect(() => {
+  //     fetch('http://localhost:3000/comments')
+  //     .then(r => r.json())
+  //     .then(data => setComments(data))
+  // },[])
 
-  function handleEditForm(name, value) {
-    setSelectedComment({
-      ...selectedComment,
-      [name]: value,
-    })
-  }
+  // function handleEditForm(name, value) {
+  //   setSelectedComment({
+  //     ...selectedComment,
+  //     [name]: value,
+  //   })
+  // }
 
-  function handleEditComment(updatedComment) {
-    const updatedComments = comments.map((comment) =>
-      comment.id === updatedComment.id ? updatedComment : comment
-    );
-    setSelectedComment(updatedComment);
-    setComments(updatedComments);
-  }
+  // function handleEditComment(updatedComment) {
+  //   const updatedComments = comments.map((comment) =>
+  //     comment.id === updatedComment.id ? updatedComment : comment
+  //   );
+  //   setSelectedComment(updatedComment);
+  //   setComments(updatedComments);
+  // }
 
 
   
@@ -51,7 +51,7 @@ function App() {
         <Route exact path="/recipes" element={<Recipes/>}/>
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/register" element={<Register/>}/>
-        <Route exact path="/commentList" element={<CommentList comments={comments} setComments={setComments} setSelectedComment={setSelectedComment} editComment={handleEditComment}/>}/>
+        <Route exact path="/comments" element={<Comments/>}/>
         <Route exact path="/logout" element={<Logout/>}/>
         {/* <Route exact path="/addrecipe" element={<AddRecipe/>}/> */}
         <Route exact path="/" element={<Home/>}/>

@@ -49,57 +49,24 @@ useEffect(() => {
   .then((data) => setRecipes(data));
 }, []);
 
-
-
-  // function handleRemoveRecipes(id) {
-  //   const newRecipes = recipes.filter((recipe) => recipe.id !== id);
-  //   setRecipes(newRecipes);
-  // }
-
-
-  
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-//     fetch("http://localhost:3000/recipes", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify({ ...formData })
-//     })
-//       .then(res => res.json())
-//       .then(newRecipe => setRecipes(
-//         [...recipes, newRecipe]))
-  
-//       setFormData(newRecipe);
-// };
-
-
   const displayedRecipes = recipes.filter((recipe) =>
     recipe.description.toLowerCase().includes(search.toLowerCase())
   );
 
-  // function newRecipeForm({ addedRecipe }) {
-   
-  
-  
-    // const handleOnChange = (e) => {
-    //   const { name, value } = e.target;
-    //   setFormData({
-      
-    //       ...formData,
-    //       [name]: value
-       
-    // })
-    // }
+
+    function deleteRecipe(id) {
+      const updatedRecipes = recipes.filter(todo => todo.id !== id)
+      setRecipes(updatedRecipes)
+  }
+
 
   return (
     <>
     <div className="recipes" style={{backgroundColor: 'tan', color: 'white}}'}}>
       {/* <SearchBar onSearch={search} /> */}
       <RecipeContainer
-        recipes={displayedRecipes}
+        recipes={displayedRecipes} 
+        onRemoveRecipe={deleteRecipe}
         // newRecipe={newRecipe}
       />
       <AddRecipe/>
