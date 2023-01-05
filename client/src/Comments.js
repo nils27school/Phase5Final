@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CommentContainer from "./CommentContainer";
 import './App.css';
 import AddComment from "./AddComment";
+import "./Card.css";
 
 function Comments() {
   const [comments, setcomments] = useState([]);
@@ -19,14 +20,15 @@ function Comments() {
   );
 
   return (
-    <>
+    <div class="ui four cards">
       <div className="comments" style={{ backgroundColor: 'tan', color: 'white}}' }}>
       <AddComment />
         <CommentContainer displayedComments={displayedComments} comments={comments}/>
-        
+        </div>
       </div>
-    </>
+   
   );
 }
 
 export default Comments;
+

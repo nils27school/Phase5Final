@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Card.css";
+import EditForm from "./EditForm";
+import { Navigate, NavLink } from "react-router-dom";
 
 function RecipeCard({
   recipe: { id, name, description, ingredients},
-  onRemoveRecipe,
+  onRemoveRecipe, user_id,
 }) {
   const [favorite, setFavorite] = useState(false);
 
@@ -13,6 +15,7 @@ function RecipeCard({
     })
     onRemoveRecipe(id)
 }
+
 
       return (
     <li className="card">
@@ -35,14 +38,18 @@ function RecipeCard({
         <h1 className="card-name">{name}</h1>
         <span className="card-ingredients"> {ingredients}</span> 
         <h2 className="card-description">{description}</h2>
-        <h2 className="card-user_id">{id}</h2>
+        <h3 className="card-user_id">Recipe ID# {id}</h3>
         <button onClick={handleDelete}>Delete</button>
-        
-
-      
-        {/* <button onClick={handleDeleteClick} className="emoji-button delete">
-          🗑
-        </button> */}
+        <NavLink
+        to="/EditForm"
+        exact
+        // style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Edit
+      </NavLink>
       </div>
     </li>
   );

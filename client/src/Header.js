@@ -8,7 +8,7 @@ function Header({ onSearch }) {
   return (
     <header>
       <h1 style={{backgroundColor: 'black', color: 'red', font: 'Sevillana'}}>
-        EZmeals
+        EZ Meals
       </h1>
       <NavBar/>
     </header>

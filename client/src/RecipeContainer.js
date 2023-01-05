@@ -1,6 +1,6 @@
 import React from "react";
 import RecipeCard from "./RecipeCard";
-import Comment from "./Comments";
+// import Comments from "./Comments";
 
 function RecipeContainer({ recipes, newRecipes, setRecipes, onRemoveRecipe }) {
 
@@ -15,7 +15,7 @@ function RecipeContainer({ recipes, newRecipes, setRecipes, onRemoveRecipe }) {
             onRemoveRecipe={onRemoveRecipe}
           />
         ))}
-        {/* <Comment/> */}
+        {/* <Comments/> */}
       </ul>
     </main>
   );

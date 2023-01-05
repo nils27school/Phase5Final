@@ -9,10 +9,10 @@ function CommentCard({
   return (
     <li className="card">
       <div className="details">
-        <h1 className="card-user">{user_id}</h1>
+        {/* <h1 className="card-user">{user_id}</h1> */}
         {/* <span className="card-comment"> {comment_id}</span> */}
-        <h2 className="card-description">{description ? description : null}</h2>
-        <span className="card-recipe"> {recipe_id}</span>
+        <h1 className="card-description">{description ? description : null}</h1>
+        <span className="card-recipe">Recipe ID# {recipe_id}</span>
       </div>
     </li>
   );

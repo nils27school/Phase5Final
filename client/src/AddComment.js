@@ -30,13 +30,13 @@ function AddComment(props) {
   }
   return(
     <div>
-      <h1>Add Comment</h1>
+      <h1>Comments</h1>
 <form onSubmit={(e)=> submit(e)}>
-  <input onChange={(e)=>handle(e)} id="description" value={data.description} placeholder="description" type="text"></input>
+  <input onChange={(e)=>handle(e)} id="description" value={data.description} placeholder="Add Comment" type="text"></input>
 
-  <input onChange={(e)=>handle(e)} id="user_id" value={data.user_id} placeholder="user" type="number"></input>
+  <input onChange={(e)=>handle(e)} id="user_id" value={data.user_id} placeholder="User" type="number"></input>
 
-  <input onChange={(e)=>handle(e)} id="recipe_id" value={data.recipe_id} placeholder="recipe" type="number"></input>
+  <input onChange={(e)=>handle(e)} id="recipe_id" value={data.recipe_id} placeholder="Recipe ID" type="number"></input>
 <button>Submit</button>
 </form>
     </div>

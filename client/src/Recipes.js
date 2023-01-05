@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RecipeContainer from "./RecipeContainer";
 import './App.css';
 import AddRecipe from "./AddRecipe";
+import EditForm from "./EditForm";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -34,6 +35,7 @@ useEffect(() => {
         onRemoveRecipe={deleteRecipe}
       />
       <AddRecipe/>
+      {/* <EditForm/> */}
     </div>
     </>
   );
