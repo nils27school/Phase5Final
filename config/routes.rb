@@ -8,7 +8,7 @@ resources :users, only: [:index, :show, :create]
 
 resources :comments, only: [:index, :show, :create, :destroy]
 
-resources :recipes, only: [:index, :show, :create, :destroy]
+resources :recipes, only: [:index, :show, :create, :destroy, :update]
 
 # login/logout
 post "/login", to: "sessions#create"
@@ -16,6 +16,7 @@ post "/register", to: "users#create"
 get "/me", to: "users#show"
 delete "/logout", to: "sessions#destroy"
 
-# get "comment", to: "comments#show"
+# update recipe
+patch "/recipes/id", to: "recipes#update"
 
 end

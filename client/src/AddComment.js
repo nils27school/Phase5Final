@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import Axios from "axios";
+import NuForm from "./NuForm";
 
-function AddComment(props) {
+function AddComment({recipes, setRecipes, editRecipe, handleEditForm, selectedRecipe}) {
   const url="http://localhost:3000/comments"
   const [data, setData] = useState({
     description:"",
@@ -39,7 +40,11 @@ function AddComment(props) {
   <input onChange={(e)=>handle(e)} id="recipe_id" value={data.recipe_id} placeholder="Recipe ID" type="number"></input>
 <button>Submit</button>
 </form>
+{/* <div>
+     <NuForm editRecipe={editRecipe} handleEditForm={handleEditForm} selectedRecipe={selectedRecipe}/>
+     </div> */}
     </div>
+    
   )
 }
 

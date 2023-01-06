@@ -70,6 +70,16 @@ function NavBar() {
       >
         Comments 
       </NavLink>
+      {/* <NavLink
+        to="/update"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Add or Edit
+      </NavLink> */}
       <NavLink
         to="/logout"
         exact
