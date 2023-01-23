@@ -5,6 +5,7 @@ import AddRecipe from "./AddRecipe";
 import EditForm from "./EditForm";
 import NuForm from "./NuForm";
 
+
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -65,8 +66,8 @@ console.log(recipes)
         // onUpdateRecipe={onUpdateRecipe}
       />
       <AddRecipe />
-      <EditForm/>
-      console.log()
+      {/* <EditForm/> */}
+      {/* console.log() */}
       {/* <NuForm  handleEditForm={handleEditForm}
         handleEditRecipe={handleEditRecipe}/> */}
     </div>
